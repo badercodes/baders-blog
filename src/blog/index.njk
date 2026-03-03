@@ -3,17 +3,172 @@ layout: base.njk
 title: Blog
 ---
 
-<div class="row">
-  <div class="col-lg-8 mx-auto">
+<style>
+  .blog-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+  .blog-header {
+    border-bottom: 1px solid #e0e8f0;
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .blog-header .tag {
+    font-family: 'Share Tech Mono', monospace;
+    color: #0a3aaa;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .blog-header .tag::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 1px;
+    background: #0a3aaa;
+  }
+  .blog-header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0a1a3a;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .blog-header p {
+    color: #4a6080;
+    font-size: 0.95rem;
+  }
+  /* Category filter pills */
+  .filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .filter-pill {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border: 1px solid #c8d8f0;
+    color: #4a6080;
+    background: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .filter-pill.active {
+    background: #0a1a3a;
+    border-color: #0a1a3a;
+    color: #ffffff;
+  }
+  /* Post list */
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .post-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid #e0e8f0;
+    text-decoration: none;
+  }
+  .post-row:first-child {
+    border-top: 1px solid #e0e8f0;
+  }
+  .post-meta {
+    flex-shrink: 0;
+    width: 120px;
+    padding-top: 0.2rem;
+  }
+  .post-meta .post-date {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.68rem;
+    color: #8a9aaa;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .post-meta .post-category {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: #0a3aaa;
+    text-transform: uppercase;
+  }
+  .post-content {
+    flex: 1;
+  }
+  .post-content .post-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0a1a3a;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+  .post-content .post-description {
+    font-size: 0.88rem;
+    color: #4a6080;
+    line-height: 1.65;
+  }
+  .post-arrow {
+    flex-shrink: 0;
+    font-size: 1rem;
+    color: #c0d0e0;
+    padding-top: 0.2rem;
+  }
+  @media(max-width: 768px) {
+    .post-row {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .post-meta {
+      width: 100%;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .blog-header h1 {
+      font-size: 1.6rem;
+    }
+  }
+</style>
+<div class="blog-wrap">
+  <div class="blog-header">
+    <div class="tag">Writing</div>
     <h1>Blog</h1>
-    <p class="text-muted">Cybersecurity walkthroughs, tech thoughts, and more.</p>
-    <hr>
-    {% for post in collections.post %}
-    <div class="mb-4">
-      <h4><a href="{{ post.url }}">{{ post.data.title }}</a></h4>
-      <small class="text-muted">{{ post.date }}</small>
-      <p>{{ post.data.description }}</p>
-    </div>
+    <p>Cybersecurity walkthroughs, CTF writeups, tech deep dives, and more.</p>
+  </div>
+  <div class="filters">
+    <span class="filter-pill active">All</span>
+    <span class="filter-pill">CTF</span>
+    <span class="filter-pill">Blue Team</span>
+    <span class="filter-pill">Tech</span>
+    <span class="filter-pill">Personal</span>
+  </div>
+  <div class="post-list">
+    {% for post in collections.post | reverse %}
+      <a href="{{ post.url }}" class="post-row">
+        <div class="post-meta">
+          <span class="post-date">{{ post.date }}</span>
+          <span class="post-category">{{ post.data.category | default("General") }}</span>
+        </div>
+        <div class="post-content">
+          <div class="post-title">{{ post.data.title }}</div>
+          <div class="post-description">{{ post.data.description }}</div>
+        </div>
+        <div class="post-arrow">→</div>
+      </a>
     {% endfor %}
   </div>
 </div>

@@ -1,67 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }} | Bader Alsabah</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #f5f7fa; font-family: 'Inter', sans-serif; }
-
-    nav {
-      background: #0a1a3a;
-      padding: 1.2rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav .brand {
-      font-family: 'Orbitron', monospace;
-      color: #ffffff;
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: 0.08em;
-    }
-    nav .links { display: flex; gap: 2.5rem; }
-    nav .links a {
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      color: #8aaad0;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    footer {
-      background: #0a1a3a;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 1.5rem 3rem;
-      text-align: center;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.72rem;
-      color: #4a6a8a;
-      letter-spacing: 0.15em;
-    }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <a href="/" class="brand">Bader Alsabah</a>
-    <div class="links">
-      <a href="/">Home</a>
-      <a href="/blog">Blog</a>
-      <a href="/about">About</a>
-    </div>
-  </nav>
-
-  {{ content | safe }}
-
-  <footer>
-    <small>&copy; 2026 Bader Alsabah — All rights reserved</small>
-  </footer>
-
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | Bader Alsabah</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #f5f7fa;
+        font-family: 'Inter', sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      body > main,
+      body > div,
+      body > section {
+        flex: 1;
+      }
+      nav {
+        background: #0a1a3a;
+        padding: 1.2rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      nav .brand {
+        font-family: 'Orbitron', monospace;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.08em;
+      }
+      nav .links {
+        display: flex;
+        gap: 2.5rem;
+      }
+      nav .links a {
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        color: #8aaad0;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      footer {
+        background: #0a1a3a;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 1.5rem 3rem;
+        text-align: center;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 0.72rem;
+        color: #4a6a8a;
+        letter-spacing: 0.15em;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="brand">Bader Alsabah</a>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+      </div>
+    </nav>
+    <main style="flex: 1;">{{ content | safe }}</main>
+    <footer>
+      <small>&copy; 2026 Bader Alsabah — All rights reserved</small>
+    </footer>
+  </body>
 </html>
