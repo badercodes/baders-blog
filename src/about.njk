@@ -3,12 +3,307 @@ layout: base.njk
 title: About
 ---
 
-<div class="row">
-  <div class="col-lg-8 mx-auto">
-    <h1>About Me</h1>
-    <p class="lead">Computer Engineer | Cybersecurity Enthusiast | CTF Player</p>
-    <p>Results-driven Computer Engineer skilled in designing and implementing robust technical solutions with a focus on cybersecurity and network integrity. Currently pursuing cybersecurity certifications and competing in CTF competitions.</p>
-    <h4 class="mt-4">What I Write About</h4>
-    <p>This blog covers my cybersecurity lab walkthroughs across platforms like TryHackMe, HackTheBox, and LetsDefend, as well as general tech and personal posts.</p>
+<style>
+  .about-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+  .about-header {
+    border-bottom: 1px solid #e0e8f0;
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .about-header .tag {
+    font-family: 'Share Tech Mono', monospace;
+    color: #0a3aaa;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .about-header .tag::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 1px;
+    background: #0a3aaa;
+  }
+  .about-header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0a1a3a;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .about-header .subtitle {
+    font-size: 0.88rem;
+    color: #0a3aaa;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .about-bio {
+    color: #4a6080;
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 3rem;
+  }
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #0a1a3a;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #0a3aaa;
+    display: inline-block;
+  }
+  /* Experience */
+  .experience {
+    margin-bottom: 3rem;
+  }
+  .exp-item {
+    margin-bottom: 2rem;
+    padding-left: 1.2rem;
+    border-left: 2px solid #e0e8f0;
+  }
+  .exp-item:last-child {
+    margin-bottom: 0;
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.3rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .exp-role {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0a1a3a;
+  }
+  .exp-date {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: #0a3aaa;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .exp-company {
+    font-size: 0.85rem;
+    color: #4a6080;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  .exp-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .exp-item ul li {
+    font-size: 0.88rem;
+    color: #4a6080;
+    line-height: 1.7;
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+  }
+  .exp-item ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #0a3aaa;
+    font-size: 0.75rem;
+  }
+  /* Education */
+  .education {
+    margin-bottom: 3rem;
+  }
+  .edu-item {
+    padding-left: 1.2rem;
+    border-left: 2px solid #e0e8f0;
+  }
+  .edu-degree {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0a1a3a;
+  }
+  .edu-school {
+    font-size: 0.85rem;
+    color: #4a6080;
+    margin-top: 0.2rem;
+  }
+  .edu-date {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: #0a3aaa;
+    letter-spacing: 0.1em;
+    margin-top: 0.2rem;
+  }
+  /* CTF / Certs */
+  .ctf-section {
+    margin-bottom: 3rem;
+  }
+  .ctf-item {
+    display: inline-block;
+    background: #f0f4ff;
+    border: 1px solid #c8d8f0;
+    color: #0a3aaa;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 0.9rem;
+    margin: 0.3rem 0.3rem 0.3rem 0;
+    text-transform: uppercase;
+  }
+  @media(max-width: 768px) {
+    .about-header h1 {
+      font-size: 1.6rem;
+    }
+    .exp-header {
+      flex-direction: column;
+    }
+    .about-wrap {
+      padding: 2rem 1.5rem 3rem;
+    }
+  }
+</style>
+<div class="about-wrap">
+  <div class="about-header">
+    <div class="tag">About Me</div>
+    <h1>Bader Alsabah</h1>
+    <div class="subtitle">Computer Engineer · Security+
+    </div>
+  </div>
+  <p class="about-bio">
+    Results-driven Computer Engineer skilled in designing and implementing robust technical solutions with a focus on
+    cybersecurity and network integrity. I thrive on tackling complex technical challenges and building secure, reliable
+    systems — with an increasing focus on cybersecurity engineering and operations. I've participated in Jeopardy-style CTF
+    competitions for three consecutive years (2023–2025), gaining hands-on experience in penetration testing, ethical
+    hacking, and offensive security techniques.
+  </p>
+  <div class="experience">
+    <div class="section-title">Experience</div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Computer Engineer Specialist</div>
+        <div class="exp-date">Feb 2023 — Present</div>
+      </div>
+      <div class="exp-company">Ministry of Information — News Studio, Kuwait</div>
+      <ul>
+        <li>Administer, monitor and troubleshoot broadcast-critical systems including Avid iNews, Media Composer, Interplay, and
+          Nexis platforms.</li>
+        <li>Manage 50+ networked devices by configuring Cisco switches including VLAN assignments within a Layer 3 switching
+          environment.</li>
+        <li>Apply ACLs and least privilege principles to reduce attack surface across production systems.</li>
+        <li>Deploy and manage endpoint security via local Group Policy, implementing a decentralized hardening model.</li>
+        <li>Perform full system image backups to Synology NAS with automated file maintenance and disaster recovery capabilities.</li>
+        <li>Implement cybersecurity best practices including secure Windows updates and optimized endpoint protection.</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Manager & Front End Software Engineer</div>
+        <div class="exp-date">Sep 2019 — Aug 2022</div>
+      </div>
+      <div class="exp-company">Hypertext Development Solutions, Kuwait</div>
+      <ul>
+        <li>Developed web and mobile applications using HTML, CSS, JavaScript, Bootstrap, React, and React Native with a focus
+          on secure coding practices.</li>
+        <li>Implemented automated testing with Cypress and applied version control best practices using Git and GitHub.</li>
+        <li>Translated client requirements into wireframes and prototypes using Adobe XD.</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">General Manager & IT Manager</div>
+        <div class="exp-date">Jan 2013 — Sep 2019</div>
+      </div>
+      <div class="exp-company">Nutrishop Middle East Company, Kuwait</div>
+      <ul>
+        <li>Led development and management of full IT infrastructure including a client-server Point-of-Sale system.</li>
+        <li>Managed the corporate Magento online store including configurations, integrations, and order fulfillment automation.</li>
+        <li>Built and configured an internal IP CCTV system using iSpy open-source platform.</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Junior Field Engineer</div>
+        <div class="exp-date">Dec 2009 — Aug 2010</div>
+      </div>
+      <div class="exp-company">Schlumberger, Oman</div>
+      <ul>
+        <li>Operated open-hole and cased-hole logging tools to acquire critical well data and delivered comprehensive field
+          reports to clients.</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Information Technology Consultant</div>
+        <div class="exp-date">Jan 2009 — Nov 2009</div>
+      </div>
+      <div class="exp-company">Arab Information Management Services, Kuwait</div>
+      <ul>
+        <li>Authored comprehensive tender requirements for the Ministry's web portal based on strategic consultations with the
+          Head of IT.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="education">
+    <div class="section-title">Education</div>
+    <div class="edu-item">
+      <div class="edu-degree">B.S. in Computer Engineering</div>
+      <div class="edu-school">Iowa State University, USA</div>
+      <div class="edu-date">Aug 2003 — Aug 2008</div>
+    </div>
+  </div>
+  <div class="education">
+    <div class="section-title">Certifications</div>
+    <div class="edu-item">
+      <div class="edu-degree">CompTIA Security+</div>
+      <div class="edu-school">CompTIA</div>
+      <div class="edu-date">Issued Jan 2026 · Expires Jan 2029</div>
+    </div>
+  </div>
+  <div class="experience">
+    <div class="section-title">Courses</div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Certified Ethical Hacker V13</div>
+        <div class="exp-date">Sep 28, 2025</div>
+      </div>
+      <div class="exp-company">Associated with Ministry of Information, Kuwait</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Fortinet Certified Professional — FortiAnalyzer</div>
+        <div class="exp-date">Jan 29, 2026</div>
+      </div>
+      <div class="exp-company">Associated with Ministry of Information, Kuwait</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Fortinet Certified Professional — FortiManager</div>
+        <div class="exp-date">Feb 3, 2026</div>
+      </div>
+      <div class="exp-company">Associated with Ministry of Information, Kuwait</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Google Cloud Fundamentals: Core Infrastructure</div>
+        <div class="exp-date">Oct 29, 2025</div>
+      </div>
+      <div class="exp-company">Associated with Ministry of Information, Kuwait</div>
+    </div>
   </div>
 </div>
