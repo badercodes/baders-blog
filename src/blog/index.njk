@@ -160,7 +160,7 @@ title: Blog
     {% for post in collections.post | reverse %}
       <a href="{{ post.url }}" class="post-row">
         <div class="post-meta">
-          <span class="post-date">{{ post.date }}</span>
+          <span class="post-date">{{ post.date | date }}</span>
           <span class="post-category">{{ post.data.category | default("General") }}</span>
         </div>
         <div class="post-content">

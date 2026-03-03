@@ -255,7 +255,7 @@ title: Home
             <a href="{{ post.url }}" class="post-card">
               <div class="post-tag">{{ post.data.category | default("General") }}</div>
               <div class="post-title">{{ post.data.title }}</div>
-              <div class="post-date">{{ post.date }}</div>
+              <div class="post-date">{{ post.date | date }}</div>
             </a>
           {% endfor %}
         </div>
