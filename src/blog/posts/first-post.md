@@ -1,9 +1,10 @@
 ---
-layout: base.njk
+layout: post.njk
 title: Welcome to My Blog
 description: The first post on my new site — what to expect.
-date: 2026-02-27
+date: 2026-02-27T10:00:00
 tags: post
+category: General
 ---
 
 <div class="col-lg-8 mx-auto">

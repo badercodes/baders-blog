@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | Bader Alsabah</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #f5f7fa;
+        font-family: 'Inter', sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      nav {
+        background: #0a1a3a;
+        padding: 1.2rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      nav .brand {
+        font-family: 'Orbitron', monospace;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.08em;
+      }
+      nav .links {
+        display: flex;
+        gap: 2.5rem;
+      }
+      nav .links a {
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        color: #8aaad0;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      footer {
+        background: #0a1a3a;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 1.5rem 3rem;
+        text-align: center;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 0.72rem;
+        color: #4a6a8a;
+        letter-spacing: 0.15em;
+        margin-top: auto;
+      }
+      .post-wrap {
+        max-width: 740px;
+        margin: 0 auto;
+        padding: 3rem 2rem 5rem;
+        flex: 1;
+      }
+      .post-back {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        color: #0a3aaa;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-bottom: 2rem;
+      }
+      .post-header {
+        border-bottom: 1px solid #e0e8f0;
+        padding-bottom: 2rem;
+        margin-bottom: 2.5rem;
+      }
+      .post-header .meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .post-header .category {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        color: #0a3aaa;
+        text-transform: uppercase;
+        background: #f0f4ff;
+        border: 1px solid #c8d8f0;
+        padding: 0.3rem 0.8rem;
+      }
+      .post-header .post-date {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 0.68rem;
+        color: #8a9aaa;
+        letter-spacing: 0.1em;
+      }
+      .post-header h1 {
+        font-family: 'Inter', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0a1a3a;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+      }
+      /* Post body typography */
+      .post-body {
+        color: #2a3a50;
+        font-size: 1rem;
+        line-height: 1.85;
+      }
+      .post-body h2 {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #0a1a3a;
+        margin: 2.5rem 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #0a3aaa;
+        display: inline-block;
+      }
+      .post-body h3 {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #0a1a3a;
+        margin: 2rem 0 0.75rem;
+      }
+      .post-body p {
+        margin-bottom: 1.4rem;
+      }
+      .post-body a {
+        color: #0a3aaa;
+      }
+      .post-body ul,
+      .post-body ol {
+        padding-left: 1.5rem;
+        margin-bottom: 1.4rem;
+      }
+      .post-body li {
+        margin-bottom: 0.4rem;
+      }
+      /* Code blocks */
+      .post-body pre {
+        background: #0a1a3a;
+        color: #a8d8ff;
+        padding: 1.2rem 1.5rem;
+        overflow-x: auto;
+        margin-bottom: 1.4rem;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        border-left: 3px solid #0a3aaa;
+      }
+      .post-body code {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 0.85rem;
+        background: #e8f0ff;
+        color: #0a3aaa;
+        padding: 0.15rem 0.4rem;
+      }
+      .post-body pre code {
+        background: transparent;
+        color: inherit;
+        padding: 0;
+      }
+      /* Blockquotes */
+      .post-body blockquote {
+        border-left: 3px solid #0a3aaa;
+        padding: 0.5rem 1.2rem;
+        margin: 1.5rem 0;
+        background: #f0f4ff;
+        color: #4a6080;
+        font-style: italic;
+      }
+      /* Images */
+      .post-body img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 1.5rem 0;
+        border: 1px solid #e0e8f0;
+      }
+      @media(max-width: 768px) {
+        .post-header h1 {
+          font-size: 1.5rem;
+        }
+        .post-wrap {
+          padding: 2rem 1.5rem 3rem;
+        }
+        nav {
+          padding: 1rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="brand">Bader Alsabah</a>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+      </div>
+    </nav>
+    <div class="post-wrap">
+      <a href="/blog" class="post-back">← Back to Blog</a>
+      <div class="post-header">
+        <div class="meta">
+          <span class="category">{{ category | default("General") }}</span>
+          <span class="post-date">{{ page.date | date }}</span>
+        </div>
+        <h1>{{ title }}</h1>
+      </div>
+      <div class="post-body">
+        {{ content | safe }}
+      </div>
+    </div>
+    <footer>
+      <small>&copy; 2026 Bader Alsabah — All rights reserved</small>
+    </footer>
+  </body>
+</html>
