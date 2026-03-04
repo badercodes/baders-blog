@@ -1,7 +1,6 @@
 backend:
-  name: github
-  repo: badercodes/baders-blog
-  branch: main
+name: git-gateway
+branch: main
 
 media_folder: src/images
 public_folder: /images
