@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: badercodes/baders-blog
+  branch: main
+
+media_folder: src/images
+public_folder: /images
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/blog/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "post.njk",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options: ["CTF", "Blue Team", "Tech", "Personal", "General"],
+        }
+      - { label: "Tags", name: "tags", widget: "hidden", default: "post" }
+      - { label: "Body", name: "body", widget: "markdown" }

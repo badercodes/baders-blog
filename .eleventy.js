@@ -1,5 +1,6 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/cms-1337");
   eleventyConfig.addFilter("limit", (arr, limit) => arr.slice(0, limit));
   eleventyConfig.addFilter("date", (date, format) => {
     const d = new Date(date);
