@@ -74,6 +74,17 @@
       gtag('js', new Date());
       gtag('config', 'G-3XTE99YZ8N');
     </script>
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ title }} | badercodes.com">
+    <meta property="og:description" content="{{ description if description else 'Computer Engineer and Cybersecurity enthusiast writing about CTFs, blue team labs, and tech.' }}">
+    <meta property="og:url" content="https://badercodes.com{{ page.url }}">
+    <meta property="og:site_name" content="badercodes.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://badercodes.com{{ image if image else '/images/hackathon.jpg' }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }} | badercodes.com">
+    <meta name="twitter:description" content="{{ description if description else 'Computer Engineer and Cybersecurity enthusiast writing about CTFs, blue team labs, and tech.' }}">
+    <meta name="twitter:image" content="https://badercodes.com{{ image if image else '/images/hackathon.jpg' }}">
   </head>
   <body>
     <nav>

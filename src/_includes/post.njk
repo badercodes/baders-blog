@@ -201,6 +201,17 @@
         }
       }
     </style>
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ title }} | badercodes.com">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="https://badercodes.com{{ page.url }}">
+    <meta property="og:site_name" content="badercodes.com">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://badercodes.com{{ image if image else '/images/hackathon.jpg' }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }} | badercodes.com">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="https://badercodes.com{{ image if image else '/images/hackathon.jpg' }}">
   </head>
   <body>
     <nav>
