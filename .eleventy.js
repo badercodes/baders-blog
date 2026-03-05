@@ -10,6 +10,8 @@ module.exports = function (eleventyConfig) {
       day: "numeric",
     });
   });
+  eleventyConfig.addGlobalData("version", process.env.npm_package_version);
+  eleventyConfig.addGlobalData("buildHash", process.env.COMMIT_REF || "dev");
 
   return {
     markdownTemplateEngine: "njk",

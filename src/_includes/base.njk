@@ -143,7 +143,8 @@
     </nav>
     <main style="flex: 1;">{{ content | safe }}</main>
     <footer>
-      <small>&copy; 2026 badercodes — All rights reserved</small>
+      <small>&copy; 2026 badercodes — All rights reserved&nbsp;·&nbsp; v{{ version }} &nbsp;·&nbsp; build
+      {{ buildHash | truncate(7, true, "") }}</small>
     </footer>
     <script>
       if (window.netlifyIdentity) {
