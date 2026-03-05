@@ -142,6 +142,9 @@ title: Blog
       font-size: 1.6rem;
     }
   }
+  .post-row.hidden {
+    display: none;
+  }
 </style>
 <div class="blog-wrap">
   <div class="blog-header">
@@ -171,4 +174,27 @@ title: Blog
       </a>
     {% endfor %}
   </div>
+  <script>
+    const pills = document.querySelectorAll('.filter-pill');
+    const posts = document.querySelectorAll('.post-row');
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        // Update active pill
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const filter = pill.textContent.trim();
+        posts.forEach(post => {
+          const category = post
+            .querySelector('.post-category')
+            .textContent
+            .trim();
+          if (filter === 'All' || category === filter) {
+            post.classList.remove('hidden');
+          } else {
+            post.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
 </div>
