@@ -1,0 +1,80 @@
+---
+layout: base.njk
+title: 404 - Page Not Found
+permalink: /404.html
+---
+
+<style>
+  .error-wrap {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+  .error-code {
+    font-family: 'Orbitron', monospace;
+    font-size: 6rem;
+    font-weight: 700;
+    color: #e0e8f0;
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+  .error-code span {
+    color: #0a3aaa;
+  }
+  .error-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0a1a3a;
+    margin-bottom: 1rem;
+  }
+  .error-message {
+    color: #4a6080;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+  .error-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: #0a1a3a;
+    border: 1px solid #0a1a3a;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid #c0d0e0;
+    color: #4a6080;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+</style>
+<div class="error-wrap">
+  <div class="error-code">
+    <span>4</span>0<span>4</span>
+  </div>
+  <div class="error-title">Page Not Found</div>
+  <p class="error-message">The page you're looking for doesn't exist or has been moved. It happens to the best of us.</p>
+  <div class="error-links">
+    <a href="/" class="btn-primary">Go Home</a>
+    <a href="/blog" class="btn-outline">Read the Blog</a>
+  </div>
+</div>
