@@ -200,6 +200,44 @@
           padding: 1rem 1.5rem;
         }
       }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.2rem;
+      }
+      .nav-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: #ffffff;
+      }
+      @media(max-width: 768px) {
+        nav {
+          flex-wrap: wrap;
+          padding: 1rem 1.5rem;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .links {
+          display: none;
+          width: 100%;
+          flex-direction: column;
+          gap: 0;
+          padding: 0.5rem 0;
+        }
+        .links.open {
+          display: flex;
+        }
+        .links a {
+          padding: 0.75rem 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+      }
     </style>
     <!-- Open Graph -->
     <meta property="og:title" content="{{ title }} | badercodes.com">
@@ -215,8 +253,15 @@
   </head>
   <body>
     <nav>
-      <a href="/" class="brand">badercodes.com</a>
-      <div class="links">
+      <a href="/" class="brand">badercodes</a>
+      <button
+        class="nav-toggle"
+        onclick="this.classList.toggle('open'); document.getElementById('nav-links').classList.toggle('open')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="links" id="nav-links">
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
         <a href="/about">About</a>
